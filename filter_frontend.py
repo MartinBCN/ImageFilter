@@ -4,7 +4,7 @@ from PIL import Image
 from src.image_filter.filter import Filter
 
 st.title('Image Filter')
-    
+
 # --- User Inputs ---
 BW = {'Yes': True, 'No': False}
 bw = st.sidebar.radio(label='Black/White', options=list(BW.keys()))
