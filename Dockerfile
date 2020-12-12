@@ -9,6 +9,8 @@ COPY src/image_filter /app
 
 WORKDIR /app
 
+RUN ls
+
 EXPOSE 8501
 
-RUN "streamlit run filter_frontend.py"
+CMD streamlit run filter_frontend.py
