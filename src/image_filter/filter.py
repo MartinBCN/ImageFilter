@@ -40,7 +40,6 @@ class Filter(object):
 
         # in color
         out = np.zeros(img_array.shape)
-        print(out.shape)
 
         if len(out.shape) == 2:
             # BW

@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-from src.image_filter.filter import Filter
+from filter import Filter
 
 st.title('Image Filter')
 
