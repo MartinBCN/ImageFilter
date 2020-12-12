@@ -22,14 +22,14 @@ class Filter(object):
         return Image.fromarray(np.uint8(bw))
 
     @staticmethod
-    def gaussian_filter(x: float = 9.5):
+    def gaussian_filter(x: float = 0):
         n = 20
-        offset = 2 * n * (1 - x)
+        offset = 9.5
         a = np.zeros((n, n))
         for i in range(n):
             for j in range(n):
                 dist = (i - offset) ** 2 + (j - offset) ** 2
-                a[i, j] = np.exp(-dist / 50.)
+                a[i, j] = np.exp(-dist / (50 * (x + 0.001)))
         a /= a.sum()  # normalize the kernel
         return a
 
@@ -53,3 +53,12 @@ class Filter(object):
             raise ValueError
 
         return Image.fromarray(np.uint8(out))
+
+
+if __name__ == '__main__':
+    import matplotlib.pyplot as plt
+    gf = Filter.gaussian_filter()
+    print(gf)
+    plt.imshow(gf)
+    plt.show()
+
